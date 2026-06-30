@@ -1,0 +1,1825 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #070a12;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: #e8edf5;
+    min-height: 100vh;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* =========================
+   Sidebar
+========================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: #0F172B;
+    padding: 28px 10px 24px 10px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* =========================
+   Main Content (FIX)
+========================= */
+
+.main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 0 40px 32px;
+    background: #0F172B;   
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* =========================
+   Brand
+========================= */
+
+.brand {
+    margin-bottom: 10px;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #7D52FF, #5C6CFF);
+    padding: 10px;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #4facfe, #8F35FC, #fbc2eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand .subtitle {
+    font-size: 11px;
+    color: #9399a4;
+    margin-left: 40px;
+}
+
+/* =========================
+   Divider
+========================= */
+
+.divider-line {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 12px 0 18px;
+}
+
+/* =========================
+   Nav Links (FULL RESTORED)
+========================= */
+
+.side-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.side-nav a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    color: #8896b5;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: 0.25s ease;
+    border: 1.5px solid transparent;
+}
+
+/* Hover (رجع زي ما كان عندك) */
+.side-nav a:hover {
+    background: #161e2e;
+    color: #d6e2ff;
+}
+
+/* Icons hover */
+.side-nav a:hover i {
+    color: #a0b8ff;
+}
+
+.side-nav a i {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+    color: #5a6a8a;
+    transition: 0.25s;
+}
+
+/* Active */
+.side-nav a.active {
+    background: rgba(70, 130, 255, 0.12);
+    border-color: rgba(70, 130, 255, 0.30);
+    color: #ffffff;
+}
+
+.side-nav a.active i {
+    color: #6c8cff;
+}
+
+/* =========================
+   User Card (FULL RESTORED)
+========================= */
+
+.user-card {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: 0.25s;
+}
+
+.user-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.user-icon {
+    font-size: 18px;
+    color: #fff;
+    background: linear-gradient(135deg, #4facfe, #8F35FC, #fbc2eb);
+    padding: 8px;
+    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.user-card .name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #d6e2ff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-card .email {
+    font-size: 11px;
+    color: #6f7fa0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-dots {
+    color: #b0c4ff;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* =========================
+   Top Nav (FULL RESTORED)
+========================= */
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    padding: 12px 0 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 28px;
+}
+
+.page-title {
+    font-size: 22px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #D875E7, #5F79CA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    left: 10px;
+}
+
+.page-subtitle {
+    font-size: 13px;
+    color: #8896b5;
+    position: relative;
+    left: 10px;
+    margin-top: 5px;
+}
+
+/* =========================
+   Stats
+========================= */
+
+.stats-container {
+    display: flex;
+    gap: 10px;
+    padding: 4px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.03);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #cbd6ed;
+    font-size: 13px;
+}
+
+.stat-item i {
+    color: #6c8cff;
+}
+.stat-item i.fa-rocket {
+    color: #b44cff;
+}
+
+
+
+/* =========================
+   Responsive FIX
+========================= */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+.live-data {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* النقطة الخضراء */
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88;
+    animation: pulse 1.2s infinite;
+}
+
+/* أنيميشن النبض */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.6);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+/* =========================
+   Today In Space
+========================= */
+
+.today-card{
+    background:#111E3F;
+    border:1px solid #111E3F;
+    border-radius:24px;
+    padding:30px;
+}
+
+.today-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.today-title-box h2{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:8px;
+}
+
+.today-title-box p{
+    color:#94A3B8;
+    font-size:18px;
+}
+
+.today-controls{
+    display:flex;
+    gap:12px;
+}
+
+#datePicker,
+#loadBtn,
+#todayBtn{
+    height:52px;
+    border-radius:14px;
+    border:1px solid #233253;
+    background:#0F172B;
+    color:#fff;
+    padding:0 18px;
+}
+
+#datePicker{
+    width:180px;
+}
+
+#loadBtn{
+    cursor:pointer;
+    background:#2563EB;
+    border-color:#2563EB;
+}
+
+#todayBtn{
+    cursor:pointer;
+}
+
+.today-content{
+    display:grid;
+    grid-template-columns:2.3fr 0.9fr;
+    gap:30px;
+}
+
+/* ===== الصورة ===== */
+.space-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #233253;
+    background: #0F172B;
+    width: 100%;
+    aspect-ratio: 16 / 9;        /* تحديد نسبة أبعاد ثابتة للإطار */
+}
+
+.space-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* تملأ الإطار بالكامل */
+    display: block;
+}
+
+/* ===== زر View Full Resolution ===== */
+.view-full-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    background: rgba(10, 14, 26, 0.7);
+    backdrop-filter: blur(6px);
+    font-size: 14px;
+    font-weight: 500;
+    color: #d0deff;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    transition: 0.3s ease;
+    z-index: 10;
+    letter-spacing: 0.3px;
+    box-sizing: border-box;
+}
+
+.view-full-btn:hover {
+    background: rgba(30, 50, 90, 0.85);
+    color: #ffffff;
+    border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* =========================
+   الأزرار الثلاثة (فوق الصورة)
+========================= */
+.controls-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 24px 0;
+}
+
+/* ---- حقل التاريخ (نفسه) ---- */
+.control-date {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 12px;
+    border: 1px solid #2d3a5e;
+    background: #0F172B;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 180px;
+    cursor: pointer;
+    color-scheme: dark;
+}
+.control-date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+.control-date::-moz-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* ---- زر Load (بأيقونة وهوية جميلة) ---- */
+.control-load {
+    height: 44px;
+    padding: 0 24px;
+    border-radius: 12px;
+    border: none;
+    background: #2563EB;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    display: flex;              /* عشان الأيقونة والنص يبقوا في صف */
+    align-items: center;
+    gap: 8px;                  /* المسافة بين الأيقونة والنص */
+}
+
+/* هوفر Load (مطور) */
+.control-load:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);          /* يطلع لفوق شوية */
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); /* ظل أزرق */
+}
+
+/* ---- زر Today (شكل من جواه أحسن) ---- */
+.control-today {
+    height: 44px;
+    padding: 0 24px;
+    border-radius: 12px;
+    border: 1px solid #2d3a5e;
+    background: transparent;
+    color: #e8edf5;              /* أفتح شوية من الأول (#cbd5e1) */
+    font-size: 14px;
+    font-weight: 600;            /* خليه Bold عشان يبان أحسن */
+    cursor: pointer;
+    transition: 0.25s ease;
+    letter-spacing: 0.3px;       /* مسافة بين الحروف تخليه أنيق */
+}
+
+/* هوفر Today (مطور) */
+.control-today:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #6c8cff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 140, 255, 0.15);
+}
+
+.space-info{
+    background:#162138;
+    border:1px solid #233253;
+    border-radius:20px;
+    padding:25px;
+    min-width: 520;
+}
+
+.space-info h3{
+    color:#fff;
+    font-size:30px;
+    line-height: 1.3;
+    font-weight: 700;
+    margin-bottom:15px;
+}
+
+.info-date{
+    color:#94A3B8;
+    font-size: 18px;
+    margin-bottom:25px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.space-info p{
+    color:#CBD5E1;
+    line-height:1.9;
+    font-size:17px;
+}
+
+.space-info small{
+    display:block;
+    padding-top: 20px;
+    margin-top:auto;
+    font-style: italic;
+    color:#94A3B8;
+}
+
+.copyright-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:auto;
+    padding-top:20px;
+    color:#94A3B8;
+}
+
+.copyright-box i{
+    font-size:14px;
+}
+
+.copyright-box small{
+    padding:0;
+    margin:0;
+}
+
+@media(max-width:1200px){
+
+    .today-content{
+        grid-template-columns:1fr;
+    }
+
+    .space-image img{
+        height:500px;
+    }
+
+    .today-top{
+        flex-direction:column;
+        gap:20px;
+    }
+}
+
+
+.right-side{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-left: -20px;
+    margin-right: 10px;   /* اختياري: يوسع المسافة من اليمين */
+}
+
+
+.space-info{
+    width:90%;
+}
+
+
+.details-card{
+    width:90%;
+    background:#182544;
+    border:1px solid #233253;
+    border-radius:18px;
+    padding:18px;
+}
+
+.details-card h4 i{
+    width:35px;
+    height:35px;
+    color:#4c8dd7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.details-card h4{
+    display:flex;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+
+.detail-row{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+  
+.detail-row:first-of-type{
+    border-top:none;
+}
+
+
+.page-section {
+    display: none;
+}
+.page-section.active {
+    display: block;
+}
+
+
+
+.video-placeholder{
+    width:100%;
+    height:650px;
+    border:1px solid #233253;
+    border-radius:20px;
+    background:#0F172B;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+}
+
+.video-placeholder i{
+    font-size:60px;
+    color:#4facfe;
+}
+
+.video-placeholder h3{
+    color:#fff;
+}
+
+.video-placeholder a{
+    color:#4facfe;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* =========================
+   Launches Section
+========================= */
+.launches-section {
+    margin-top: 10px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width:1200px;
+    margin:0 auto 24px auto;
+}
+
+.section-header h2{
+    font-weight: 900;
+    font-size: 30px;
+}
+
+
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e8edf5;
+    margin: 0;
+}
+
+.section-badge {
+    background: rgba(108, 140, 255, 0.15);
+    color: #6c8cff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 30px;
+    border: 1px solid rgba(108, 140, 255, 0.2);
+}
+
+/* ===== Featured Launch ===== */
+
+.featured-launch{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:30px;
+
+    background:#111E3F;
+    border:1px solid #233253;
+    border-radius:20px;
+
+    padding:30px;
+    max-width:1200px;
+    margin:0 auto;
+
+    transition:.35s ease;
+}
+
+.featured-launch:hover{
+    transform:translateY(-5px);
+    border-color:#8B5CF6;
+    box-shadow:0 0 35px rgba(139,92,246,.22);
+}
+
+
+/* ================= LEFT ================= */
+
+.featured-left{
+    display:flex;
+    flex-direction:column;
+}
+
+.featured-badge{
+    background:rgba(255,200,0,.15);
+    color:#ffd700;
+    padding:6px 14px;
+    border-radius:30px;
+    font-size:12px;
+    font-weight:600;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    width:max-content;
+}
+
+.go-badge{
+    background:#16a34a;
+    color:#fff;
+    padding:4px 10px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:700;
+    width:max-content;
+    margin-bottom:18px;
+}
+
+.featured-name{
+    font-size:30px;
+    font-weight:700;
+    color:#fff;
+    line-height:1.3;
+    margin-bottom:10px;
+}
+
+.featured-mission{
+    font-size:18px;
+    color:#AAB7CF;
+    margin-bottom:10px;
+}
+
+.featured-provider{
+    font-size:15px;
+    color:#4facfe;
+    margin-bottom:20px;
+}
+
+
+/* ================= DETAILS ================= */
+
+.featured-details{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.featured-details>div{
+
+    background:#0F172B;
+    border:1px solid #233253;
+    border-radius:14px;
+
+    padding:14px 18px;
+
+    color:#E2E8F0;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.featured-details>div:hover{
+
+    border-color:#8B5CF6;
+
+}
+
+.featured-details span{
+
+    display:block;
+
+    color:#7D8BA7;
+
+    font-size:11px;
+
+    text-transform:uppercase;
+
+    margin-bottom:6px;
+
+    letter-spacing:.8px;
+
+}
+
+.featured-description{
+
+    color:#AAB7CF;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+    margin-bottom:28px;
+
+}
+
+
+/* ================= BUTTONS ================= */
+
+.featured-btn{
+
+    background:#2563EB;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:30px;
+
+    padding:12px 36px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.featured-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-2px);
+
+}
+
+.icon-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:1px solid #233253;
+
+    background:#18233c;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.icon-btn:hover{
+
+    background:#8B5CF6;
+
+    border-color:#8B5CF6;
+
+}
+
+
+/* ================= RIGHT IMAGE ================= */
+
+.featured-right{
+
+    width:100%;
+
+    display:flex;
+
+}
+
+.featured-image-placeholder{
+
+    width:100%;
+
+    min-height:540px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:#0F172B;
+
+    border:1px solid #233253;
+
+}
+
+#featured-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.45s ease;
+
+}
+
+.featured-launch:hover #featured-image{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .featured-launch{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .featured-details{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .featured-image-placeholder{
+
+        min-height:350px;
+
+    }
+
+}
+
+
+
+
+
+.all-launches{
+    margin:50px 50px 30px;
+}
+
+.all-launches-title{
+    color:#fff;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+/* ================= Grid ================= */
+
+.launches-grid{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+/* ================= Card ================= */
+
+.launch-card{
+    background:#18233c;
+    border:1px solid #2f3c5d;
+    border-radius:18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+/* ================= Image ================= */
+
+.launch-image{
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
+    background: #101827;
+}
+
+.launch-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.launch-image:hover img{
+    transform: scale(1.08);
+}
+
+.launch-status{
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:#18b66b;
+    color:#fff;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+/* ================= Body ================= */
+
+.launch-body{
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    flex:1;
+}
+
+.launch-body h3{
+    color:#fff;
+    font-size:20px;
+    line-height:1.45;
+    font-weight:700;
+    margin:0;
+    min-height:58px;
+}
+
+.launch-body p{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:0;
+    color:#d8e1ef;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.launch-body i{
+    width:18px;
+    color:#4facfe;
+    flex-shrink:0;
+}
+
+.launch-body hr{
+    border:none;
+    border-top:1px solid #31415e;
+    margin:8px 0 2px;
+}
+
+/* ================= Footer ================= */
+
+.launch-footer{
+    margin-top:auto;
+    display:flex;
+    gap:10px;
+}
+
+.launch-footer button:first-child{
+    flex:1;
+    height:44px;
+    border:none;
+    border-radius:10px;
+    background:#3b4d6c;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.launch-footer button:first-child:hover{
+    background:#4facfe;
+}
+
+.heart-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    border-radius:10px;
+    background:#3b4d6c;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.heart-btn:hover{
+    background:#4facfe;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:1100px){
+
+    .launches-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .launches-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+
+
+
+/* ==========================================
+            PLANETS SECTION
+========================================== */
+
+.solar-system-section{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.solar-system-section .section-header{
+    margin-bottom:35px;
+}
+
+.solar-system-section .section-title{
+    font-size:34px;
+    color:#fff;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.solar-system-section .section-subtitle{
+    color:#94A3B8;
+    font-size:16px;
+}
+
+/* ===========================
+      PLANETS TOP CARDS
+=========================== */
+
+.planets-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(8,1fr);
+
+    gap:16px;
+
+    margin-bottom:35px;
+
+}
+
+.planet-card{
+
+    background:#111E3F;
+
+    border:1px solid #243354;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.planet-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#8B5CF6;
+
+    box-shadow:0 0 25px rgba(139,92,246,.25);
+
+}
+
+.planet-card.active{
+
+    border-color:#8B5CF6;
+
+    background:#17264b;
+
+}
+
+.planet-card img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+    margin-bottom:12px;
+
+}
+
+.planet-card h4{
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.planet-card p{
+
+    color:#94A3B8;
+
+    font-size:12px;
+
+    margin-top:4px;
+
+}
+
+/* ===========================
+       MAIN LAYOUT
+=========================== */
+
+.planet-layout{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+}
+
+/* ===========================
+         LEFT SIDE
+=========================== */
+
+.planet-main{
+
+    background:#111E3F;
+
+    border:1px solid #243354;
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.planet-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:30px;
+
+}
+
+.planet-image{
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:#0F172B;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+.planet-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+.planet-info{
+
+    flex:1;
+
+}
+
+.planet-info h2{
+
+    color:#fff;
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.planet-info p{
+
+    color:#CBD5E1;
+
+    line-height:1.8;
+
+}
+
+.favorite-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#1b2d4d;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.favorite-btn:hover{
+
+    background:#8B5CF6;
+
+}
+
+/* ===========================
+         STATS
+=========================== */
+
+.planet-stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:30px;
+}
+
+.stat-card{
+    background:#111E3F;
+    border:1px solid #233253;
+    border-radius:16px;
+    padding:20px;
+    transition:.3s;
+}
+
+.stat-card span{
+    display:block;
+    color:#94A3B8;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.stat-card h3{
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* ===========================
+        RIGHT SIDE
+=========================== */
+
+.planet-side{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;   /* مسافة بين كل جدول */
+
+}
+
+.side-card{
+
+    background:#111E3F;
+
+    border:1px solid #243354;
+
+    border-radius:18px;
+
+    padding:22px;
+
+}
+
+.side-card h3{
+
+    color:#fff;
+
+    margin-bottom:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:18px;
+
+}
+
+.side-card h3 i{
+
+    color:#60A5FA;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+.info-row span{
+
+    color:#94A3B8;
+
+    font-size:14px;
+
+}
+
+.info-row strong{
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+.facts-list{
+
+    padding-left:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    color:#CBD5E1;
+
+}
+
+.learn-btn{
+
+    margin-top:8px;   /* بعيد عن آخر جدول */
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#2563EB;
+
+    color:#fff;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.learn-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+}
+/* ===========================
+      RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+    .planet-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .planets-grid{
+
+        grid-template-columns:repeat(4,1fr);
+
+    }
+
+    .planet-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    .planet-header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .planets-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .planet-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+
+/* ===========================
+   Planet Comparison
+=========================== */
+
+.planet-comparison{
+    margin-top:50px;
+}
+
+.comparison-header{
+    margin-bottom:18px;
+}
+
+.comparison-header h2{
+    color:#fff;
+    font-size:34px;
+    font-weight:700;
+}
+
+.comparison-table-wrapper{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    border:1px solid #334155;
+
+    background:#16213d;
+
+}
+
+.comparison-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.comparison-table thead{
+
+    background:#101b34;
+
+}
+
+.comparison-table th{
+
+    color:#fff;
+
+    text-align:left;
+
+    padding:22px 26px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+.comparison-table td{
+
+    padding:20px 26px;
+
+    color:#dbe7ff;
+
+    font-size:17px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.comparison-table tbody tr{
+
+    transition:.25s;
+
+}
+
+.comparison-table tbody tr:hover{
+
+    background:#24324f;
+
+}
+
+.loading-row{
+
+    text-align:center;
+
+    color:#8ea8d7;
+
+    padding:40px !important;
+
+}
+
+/* Planet */
+
+.planet-name{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    font-weight:600;
+
+    color:#fff;
+
+}
+
+.planet-dot{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+}
+
+/* Planet Colors */
+
+.dot-mercury{
+    background:#9CA3AF;
+}
+
+.dot-venus{
+    background:#FFA146;
+}
+
+.dot-earth{
+    background:#3B82F6;
+}
+
+.dot-mars{
+    background:#EF4444;
+}
+
+.dot-jupiter{
+    background:#E8A15B;
+}
+
+.dot-saturn{
+    background:#FFD84C;
+}
+
+.dot-uranus{
+    background:#34D3EB;
+}
+
+.dot-neptune{
+    background:#2563EB;
+}
+
+/* Badges */
+
+.type-badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge-terrestrial{
+
+    background:#7c3d16;
+
+    color:#ffb36b;
+
+}
+
+.badge-gas{
+
+    background:#50358e;
+
+    color:#d6b3ff;
+
+}
+
+.badge-ice{
+
+    background:#2457a6;
+
+    color:#8fd2ff;
+
+}
+

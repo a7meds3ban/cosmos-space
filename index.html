@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMOS - Space Dashboard</title>
+  <link rel="icon" href="./assets/images/favicon.png" />
+  <script>
+    window.FontAwesomeConfig = { autoReplaceSvg: "nest" };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"
+    referrerpolicy="no-referrer">
+    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="dashboard">
+    <!-- الشريط الجانبي الثابت -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-wrapper">
+          <i class="fas fa-rocket logo-icon"></i>
+          <h1>COSMOS</h1>
+        </div>
+        <span class="subtitle">Space Dashboard</span>
+      </div>
+      <hr class="divider-line" />
+      <nav class="side-nav">
+
+        <a href="#" class="active" data-tab="today"><i class="fas fa-images"></i> TODAY IN SPACE</a>
+        <a href="#" data-tab="launches"><i class="fas fa-rocket"></i> LAUNCHES</a>
+        <a href="#" data-tab="planets"><i class="fas fa-globe"></i> PLANETS</a>
+      </nav>
+      <hr class="divider-line" />
+      <div class="user-card">
+        <i class="fas fa-user user-icon"></i>
+        <div class="user-info">
+          <p class="name">Space Explorer</p>
+          <p class="email">explorer@cosmos.space</p>
+        </div>
+        <i class="fas fa-ellipsis-v menu-dots"></i>
+      </div>
+    </aside>
+
+    <!-- ===== المحتوى الرئيسي ===== -->
+    <main class="main-content">
+      <!-- الناف بار العلوي (داخل main-content) -->
+      <div class="top-nav">
+        <div class="top-nav-left">
+          <h1 class="page-title">Space Explorer Dashboard</h1>
+          <p class="page-subtitle">Real-time space data from NASA &amp; SpaceDevs</p>
+        </div>
+        <div class="top-nav-right">
+          <div class="stats-container">
+            <span class="stat-item live-data">
+              <span class="live-dot"></span>
+              Live Data
+            </span> <span class="stat-divider">|</span>
+            <span class="stat-item"><i class="fas fa-globe"></i> 8 Planets</span>
+            <span class="stat-divider">|</span>
+            <span class="stat-item"><i class="fas fa-rocket"></i> 10 Launches</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== Today in Space Header ===== -->
+      <div id="section-today" class="page-section active">
+        <div class="today-top"
+          style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div class="today-title-box">
+            <h2 style="font-size: 32px; color: #fff; margin: 0;">Today in Space</h2>
+            <p id="apod-date-display" style="color: #94A3B8; font-size: 16px; margin: 4px 0 0 0;">June 20, 2026</p>
+          </div>
+        </div>
+        <!-- ===== Today In Space ===== -->
+        <div class="today-content">
+          <!-- الصورة -->
+          <div class="space-image">
+            <img id="apod-image" src="" alt="NASA APOD">
+            <a id="hd-link" href="#" target="_blank" class="view-full-btn">View Full Resolution</a>
+          </div>
+          <!-- العمود اليمين -->
+          <div class="right-side">
+            <!-- ===== الأزرار الثلاثة (فوق الصورة) ===== -->
+            <div class="controls-bar">
+              <input type="date" class="control-date" id="datePicker" value="2026-06-20" />
+              <button class="control-load" id="loadBtn">
+                <i class="fas fa-search"></i> Load
+              </button>
+              <button class="control-today" id="todayBtn">Today</button>
+            </div>
+            <!-- الكارد الكبيرة -->
+            <div class="space-info">
+
+              <h3 id="apod-title">Daytime Moon Meets Evening Star</h3>
+
+              <div class="info-date">
+                <i class="fa-regular fa-calendar"></i>
+                <span id="apod-date"></span>
+              </div>
+
+              <p id="apod-description">
+                Venus is now appearing on the celestial stage as Earth's brilliant evening star, performing with the
+                Moon,
+                other wandering planets, and bright stars in western skies. For evening sky gazers on June 17, the
+                celestial beacon rose after sunset close by a young, slender, crescent Moon. But from some locations the
+                Moon could be seen to occult or pass in front of Venus. And from a backyard observatory in southern
+                British Columbia, Canada, the lunar occultation was played out in daylight. This stunning telescopic
+                snapshot captured a scene in dramatically cloudy skies, following Venus' hour long disappearance, as the
+                evening star emerged beyond the bright lunar limb.
+              </p>
+
+              <div class="copyright-box">
+                <i class="fa-regular fa-copyright"></i>
+                <small id="apod-copyright">
+                  Copyright: Debra Ceravolo
+                </small>
+              </div>
+
+            </div>
+
+            <!-- الكارد الصغيرة -->
+            <div class="details-card">
+
+              <h4>
+                <i class="fa-solid fa-circle-info"></i>
+                Image Details
+              </h4>
+
+              <div class="detail-row">
+                <span>Date</span>
+                <span id="detail-date">June 20, 2026</span>
+              </div>
+
+              <div class="detail-row">
+                <span>Media Type</span>
+                <span id="detail-type">Image</span>
+              </div>
+
+              <div class="detail-row">
+                <span>Source</span>
+                <span>NASA APOD</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ===== تبويب Launches ===== -->
+      <div id="section-launches" class="page-section">
+        <div class="launches-section">
+
+          <!-- الهيدر -->
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Upcoming Launches</h2>
+              <p style="color: #94A3B8; font-size: 17px; margin-top: 4px; margin-bottom: 5px;">Real-time tracking of the
+                next missions to
+                space</p>
+            </div>
+          </div>
+
+          <!-- ===== البطاقة المميزة (Featured Launch) ===== -->
+          <div class="featured-launch">
+
+            <!-- الجانب الأيسر (المعلومات) -->
+            <div class="featured-left">
+              <div class="featured-badge">
+                ★ Featured Launch
+              </div>
+              <span class="go-badge">GO</span>
+
+              <div class="featured-name" id="featured-name">
+                Loading...
+              </div>
+              <div class="featured-mission">
+                <i class="fas fa-rocket"></i>
+                <span id="featured-rocket">Loading...</span>
+              </div>
+              <div class="featured-provider" id="featured-provider">
+                <i class="fas fa-building" style="margin-right: 10px; color: #6f7fa0;"></i> China Aerospace Science and
+                Technology Corporation
+              </div>
+              <div class="featured-details">
+                <div><i class="fas fa-calendar-alt" style="margin-right: 8px; color: #4facfe;"></i>
+                  <span>Launch Date</span>
+                  <span id="featured-date">Loading...</span>
+                </div>
+
+                <div><i class="fas fa-clock" style="margin-right: 8px; color: #4facfe;"></i>
+                  <span>Launch Time</span>
+                  <span id="featured-time">Loading...</span>
+                </div>
+
+                <div><i class="fas fa-location-dot" style="margin-right: 8px; color: #4facfe;"></i>
+                  <span>Location</span>
+                  <span id="featured-location">Loading...</span>
+                </div>
+
+                <div><i class="fas fa-flag" style="margin-right: 8px; color: #4facfe;"></i>
+                  <span>Country</span>
+                  <span id="featured-country">Loading...</span>
+                </div>
+              </div>
+
+              <p class="featured-description" id="featured-description">
+                Loading...
+              </p>
+
+              <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <button class="featured-btn">View Full Details →</button>
+                <button class="icon-btn"><i class="fa-regular fa-heart"></i></button>
+                <button class="icon-btn"><i class="fa-regular fa-bell"></i></button>
+              </div>
+            </div>
+
+            <!-- الجانب الأيمن (الصورة/الأيقونة) -->
+            <div class="featured-right">
+              <div class="featured-image-placeholder">
+                <img id="featured-image" src="assets/images/rocket-placeholder.jpg" alt="Launch Image">
+              </div>
+            </div>
+          </div>
+          <!-- ===== كل الإطلاقات ===== -->
+          <div class="all-launches">
+
+            <h2 class="all-launches-title">All Upcoming Launches</h2>
+
+            <div class="launches-grid" id="launches-container">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ================= Solar System Section ================= -->
+      <div id="section-planets" class="page-section">
+
+        <div class="solar-system-section">
+
+          <!-- العنوان -->
+          <div class="section-header">
+            <div>
+              <h2 class="section-title">Explore Our Solar System</h2>
+              <p class="section-subtitle">
+                Discover the planets, moons, and celestial bodies in our cosmic neighborhood
+              </p>
+            </div>
+          </div>
+
+          <!-- كروت الكواكب -->
+<!-- ========================= -->
+<!-- Planet Navigation -->
+<!-- ========================= -->
+
+<div class="planets-grid">
+
+    <div class="planet-card active" data-planet="earth">
+        <img src="assets/images/earth.png" alt="Earth">
+        <span>Earth</span>
+    </div>
+
+    <div class="planet-card" data-planet="mars">
+        <img src="assets/images/mars.png" alt="Mars">
+        <span>Mars</span>
+    </div>
+
+    <div class="planet-card" data-planet="jupiter">
+        <img src="assets/images/jupiter.png" alt="Jupiter">
+        <span>Jupiter</span>
+    </div>
+
+    <div class="planet-card" data-planet="saturn">
+        <img src="assets/images/saturn.png" alt="Saturn">
+        <span>Saturn</span>
+    </div>
+
+    <div class="planet-card" data-planet="uranus">
+        <img src="assets/images/uranus.png" alt="Uranus">
+        <span>Uranus</span>
+    </div>
+
+    <div class="planet-card" data-planet="neptune">
+        <img src="assets/images/neptune.png" alt="Neptune">
+        <span>Neptune</span>
+    </div>
+
+    <div class="planet-card" data-planet="venus">
+        <img src="assets/images/venus.png" alt="Venus">
+        <span>Venus</span>
+    </div>
+
+    <div class="planet-card" data-planet="mercury">
+        <img src="assets/images/mercury.png" alt="Mercury">
+        <span>Mercury</span>
+    </div>
+
+</div>
+          </div>
+
+
+          <!-- ================= Layout ================= -->
+
+          <div class="planet-layout">
+            
+
+            <!-- ================= Left Side ================= -->
+
+            <div class="planet-main">
+
+              <!-- الهيدر -->
+              <div class="planet-header">
+
+                <div class="planet-image-box">
+                  <img id="planet-image" src="assets/images/planets/earth.png" alt="Planet">
+                </div>
+
+                <div class="planet-info">
+
+                  <h2 id="planet-name">
+                    Earth
+                  </h2>
+
+                  <p id="planet-description">
+                    Loading...
+                  </p>
+
+                </div>
+
+                <button class="favorite-btn">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+
+              </div>
+
+
+              <!-- Statistics -->
+
+              <div class="planet-stats">
+
+                <div class="stat-card">
+                  <small>Semi-major Axis</small>
+                  <h3 id="planet-axis">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Mean Radius</small>
+                  <h3 id="planet-radius">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Mass</small>
+                  <h3 id="planet-mass">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Density</small>
+                  <h3 id="planet-density">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Orbital Period</small>
+                  <h3 id="planet-orbit">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Rotation Period</small>
+                  <h3 id="planet-rotation">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Moons</small>
+                  <h3 id="planet-moons">Loading...</h3>
+                </div>
+
+                <div class="stat-card">
+                  <small>Gravity</small>
+                  <h3 id="planet-gravity">Loading...</h3>
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+        <!-- ================= Right Side ================= -->
+<div class="planet-side">
+
+    <!-- Discovery Info -->
+    <div class="side-card">
+
+        <h3>
+            <i class="fa-solid fa-user-astronaut"></i>
+            Discovery Info
+        </h3>
+
+        <div class="info-row">
+            <span>Discovered By</span>
+            <strong id="planet-discovered">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Discovery Date</span>
+            <strong id="planet-discovery-date">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Body Type</span>
+            <strong id="planet-type">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Volume</span>
+            <strong id="planet-volume">Loading...</strong>
+        </div>
+
+    </div>
+
+    <!-- Quick Facts -->
+    <div class="side-card">
+
+        <h3>
+            <i class="fa-solid fa-lightbulb"></i>
+            Quick Facts
+        </h3>
+
+        <ul class="facts-list">
+
+            <li>
+                <span>Mass</span>
+                <strong id="quick-mass">Loading...</strong>
+            </li>
+
+            <li>
+                <span>Gravity</span>
+                <strong id="quick-gravity">Loading...</strong>
+            </li>
+
+            <li>
+                <span>Density</span>
+                <strong id="quick-density">Loading...</strong>
+            </li>
+
+            <li>
+                <span>Axial Tilt</span>
+                <strong id="quick-tilt">Loading...</strong>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Orbital Characteristics -->
+    <div class="side-card">
+
+        <h3>
+            <i class="fa-solid fa-satellite"></i>
+            Orbital Characteristics
+        </h3>
+
+        <div class="info-row">
+            <span>Perihelion</span>
+            <strong id="planet-perihelion">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Aphelion</span>
+            <strong id="planet-aphelion">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Eccentricity</span>
+            <strong id="planet-eccentricity">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Avg Temperature</span>
+            <strong id="planet-temperature">Loading...</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Escape Velocity</span>
+            <strong id="planet-escape">Loading...</strong>
+        </div>
+
+    </div>
+
+    <!-- Learn More -->
+    <button class="learn-btn">
+        <i class="fa-solid fa-book"></i>
+        Learn More
+    </button>
+
+</div>
+            </div>
+<!-- ===================================== -->
+<!-- Planet Comparison -->
+<!-- ===================================== -->
+
+<div class="planet-comparison">
+
+    <div class="comparison-header">
+
+        <h2>Planet Comparison</h2>
+
+    </div>
+
+    <div class="comparison-table-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Planet</th>
+                    <th>Distance (AU)</th>
+                    <th>Diameter (km)</th>
+                    <th>Mass (Earth=1)</th>
+                    <th>Orbital Period</th>
+                    <th>Moons</th>
+                    <th>Type</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="comparison-body">
+
+                <!-- هيتم ملؤها بالـ API -->
+
+                <tr>
+
+                    <td colspan="7" class="loading-row">
+                        Loading planets...
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+          </div>
+        </div>
+
+        <script src="assets/js/index.js"></script>
+</body>
+
+</html>
